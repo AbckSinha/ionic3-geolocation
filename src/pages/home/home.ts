@@ -7,12 +7,14 @@ import { Geolocation } from '@ionic-native/geolocation';
   templateUrl: 'home.html'
 })
 export class HomePage {
-
+  currentPosition = {};
+  updatedPosition = {};
   constructor(public navCtrl: NavController, private geolocation: Geolocation) {
 
   }
   ngOnInit() {
     this.geolocation.getCurrentPosition().then((resp) => {
+      this.currentPosition = resp.coords;
       console.log(resp.coords.latitude);
       console.log(resp.coords.longitude);
     }).catch((error) => {
@@ -22,8 +24,9 @@ export class HomePage {
     let watch = this.geolocation.watchPosition();
     watch.subscribe((data) => {
       // data can be a set of coordinates, or an error (if an error occurred).
-        console.log("latitude" + data.coords.latitude);
-        console.log("longitude" +data.coords.longitude);
+        this.updatedPosition = data.coords;
+        console.log("latitude" + " " + data.coords.latitude);
+        console.log("longitude" + " " + data.coords.longitude);
     });
   }
 
