@@ -5,6 +5,14 @@
 </ion-header>
 
 <ion-content padding>
-    <h1>Geolocation Implementation</h1>
-    <p padding> Look in console for cordinates</p>
+  <h1>Geolocation Implementation</h1>
+  <p padding> <strong> Your Current position is</strong><br>
+    <span>Latitude :- {{  currentPosition.latitude}}</span><br>
+    <span>Longitude :- {{  currentPosition.longitude}}</span>
+  </p>
+
+  <p padding><strong> I am watching your position</strong><br>
+    <span>Latitude :- {{  updatedPosition.latitude}}</span><br>
+    <span>Longitude :- {{  updatedPosition.longitude}}</span>
+  </p>
 </ion-content>
